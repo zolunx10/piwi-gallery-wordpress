@@ -1,0 +1,56 @@
+.ng-show {
+  visibility:visible !important;
+}
+.ng-hide {
+  display:none !important;
+  visibility:hidden;
+}
+input.ng-invalid {
+  background:#FDD;
+}
+
+.pwg-admin .check-column, .pwg-admin .gid, .pwg-admin .iid{
+  width:35px;
+}
+.pwg-admin .set-thumb {
+  width:80px;
+}
+.pwg-admin .image-thumb {
+  width:160px;
+}
+.pwg-admin .image-thumb img {
+  _width:120px;
+  max-width:120px;
+  max-height:160px;
+}
+.pwg-admin textarea {
+  width:100%;
+}
+.pwg-admin textarea:focus {
+  border:1px inset #FC3;
+}
+.pwg-admin th.title, .pwg-admin th.iid, .pwg-admin th.path, .pwg-admin th.gid {
+  cursor:pointer;
+  text-decoration:underline;
+}
+
+
+.mod-upload .item-list {
+  overflow-y: auto;
+  max-height: 400px;
+  _height:400px;
+}
+
+.progress-box {
+  position:relative;
+  width:100%;
+  clear:both;
+  font-size:0.9em;
+}
+.progress-box > div {
+  position:absolute;
+  left:-5px; top:0;
+  height:100%;
+  background:#A6E22E;
+  z-index:-5;
+}
