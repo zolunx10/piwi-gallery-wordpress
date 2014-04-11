@@ -14,10 +14,14 @@ class PWG_GalleryModel {
     $this->options = get_option('pwg_options');
     if ($this->options['using_bcs']) {
       require_once(PWG_ABSPATH . 'bcs_adjuster.php');
-      $ak = $this->options['ak'];
-      $sk = $this->options['sk'];
-      if ($ak && $sk) {
-        $this->fs = new BCSAdjuster($ak, $sk, $this->options['bucket']);
+      if(false === ($bcs_ak = getenv ( 'HTTP_BAE_ENV_AK' ))) {
+        $bcs_ak = attribute_escape($this->options['ak']);
+      }
+      if(false === ($bcs_sk = getenv ( 'HTTP_BAE_ENV_SK' ))) {
+        $bcs_sk = attribute_escape($this->options['sk']);
+      }
+      if ($bcs_ak && $bcs_sk) {
+        $this->fs = new BCSAdjuster($bcs_ak, $bcs_sk, $this->options['bucket']);
       }
     } else {
       require_once(PWG_ABSPATH . 'ls_adjuster.php');

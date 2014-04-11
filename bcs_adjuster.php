@@ -1,6 +1,12 @@
 <?php
 define('BCS_HOST', 'bcs.duapp.com');
-require_once(PWG_ABSPATH . 'bcs.class.php');
+if (!class_exists('BaiduBCS')) {
+  if (is_file(dirname(dirname(__FILE__)) . '/bcs-support/bcs.class.php'))   // avoid confliction with bcs-support
+    require_once(dirname(dirname(__FILE__)) . '/bcs-support/bcs.class.php');
+  else
+    require_once(PWG_ABSPATH . 'bcs.class.php');
+}
+
 /**
  * a wrapper class to BCS api
  */
@@ -10,7 +16,7 @@ class BCSAdjuster {
   var $last_info; 
   var $bucket;
   function __construct($ak, $sk, $bucket) {
-    $this->bcs = new BgiduBCS($ak, $sk);
+    $this->bcs = new BaiduBCS($ak, $sk);
     $this->bucket = $bucket;
     $options = get_option('pwg_options');
     $this->baseurl = 'http://' . BCS_HOST . '/' . $options['bucket'];

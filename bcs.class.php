@@ -13,7 +13,7 @@ class BCS_Exception extends Exception {
 /**
  * BCS API
  */
-class BgiduBCS {
+class BaiduBCS {
 	/*%******************************************************************************************%*/
 	// CLASS CONSTANTS
 	//百度云存储默认外网域名
@@ -231,7 +231,7 @@ class BgiduBCS {
 	/**
 	 * 获取当前密钥对拥有者的bucket列表
 	 * @param array $opt (Optional) 
-	 * BgiduBCS::IMPORT_BCS_LOG_METHOD - String - Optional: 支持用户传入日志处理函数，函数定义如 function f($log)
+	 * BaiduBCS::IMPORT_BCS_LOG_METHOD - String - Optional: 支持用户传入日志处理函数，函数定义如 function f($log)
 	 * @throws BCS_Exception
 	 * @return BCS_ResponseCore
 	 */
@@ -291,7 +291,7 @@ class BgiduBCS {
 	 * a. $acl 为json的array
 	 * b. $acl 为json的string
 	 * (2).通过acl_type字段进行设置
-	 * a. $acl 为BgiduBCS::$ACL_TYPES中的字段
+	 * a. $acl 为BaiduBCS::$ACL_TYPES中的字段
 	 * @param string $bucket (Required)
 	 * @param string $acl (Required)
 	 * @param array $opt (Optional)
@@ -571,11 +571,11 @@ class BgiduBCS {
 	 * @param array $opt(Optional) 
 	 * string prefix 文件object前缀
 	 * boolean has_sub_directory(default=true)   object命名中是否携带文件的子目录结构，若置为false，请确认待上传的目录和所有子目录中没有重名文件，否则会产生object覆盖问题
-	 * BgiduBCS::IMPORT_BCS_PRE_FILTER   用户可自定义上传文件前的操作函数
+	 * BaiduBCS::IMPORT_BCS_PRE_FILTER   用户可自定义上传文件前的操作函数
 	 * 1. 函数参数列表顺序需为 ($bucket,$object,$file,&$opt)，注意$opt为upload_directory函数传入的$opt的拷贝，只对当前object生效
 	 * 2. 函数返回值必须为boolean，当true该文件进行上传，若false跳过上传
 	 * 3. 如果函数返回false，将不会进行post_filter的调用
-	 * BgiduBCS::IMPORT_BCS_POST_FILTER  用户可自定义上传文件后的操作函数
+	 * BaiduBCS::IMPORT_BCS_POST_FILTER  用户可自定义上传文件后的操作函数
 	 * 1. 函数参数列表顺序需为 ($bucket,$object,$file,&$opt,$response)，注意$opt为upload_directory函数传入的$opt的拷贝，只对当前object生效
 	 * 2. 函数返回值无要求
 	 * string seek_object 用户断点续传，需要为object名称，如果该object在目录中不存在，抛出异常，若存在则将该object和此后的object进行上传
@@ -817,7 +817,7 @@ class BgiduBCS {
 	 * a. $acl 为json的array
 	 * b. $acl 为json的string
 	 * (2).通过acl_type字段进行设置
-	 * a. $acl 为BgiduBCS::$ACL_ACTIONS中的字段
+	 * a. $acl 为BaiduBCS::$ACL_ACTIONS中的字段
 	 * @param string $bucket (Required)
 	 * @param string $object (Required)
 	 * @param string|array $acl (Required)

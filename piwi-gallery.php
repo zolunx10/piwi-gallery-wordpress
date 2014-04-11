@@ -6,11 +6,11 @@
 /*
 Plugin Name: Piwi-Gallery
 Version: 0.1.1
-Description: Just another wp-gallery plugin supporting flexible storage (BgiduBCS, local, etc.).
+Description: Just another wp-gallery plugin supporting flexible storage (BaiduBCS, local, etc.).
 Author: zolunX10
 Require: bcs.class.php
 */
-require_once(ABSPATH.'dBug.php');
+// require_once(ABSPATH.'dBug.php');
 if (WP_DEBUG)
   error_reporting(E_ALL ^ E_NOTICE);
 
